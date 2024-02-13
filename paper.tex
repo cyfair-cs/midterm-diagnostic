@@ -1,0 +1,234 @@
+\documentclass[11pt,addpoints]{exam}
+\usepackage{amsfonts,amssymb,amsmath, amsthm}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{fillbetween}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{lipsum}
+\usepackage{float}
+% \usepackage{times}
+
+\def\testname{Cy-Fair HS Competitive CS Mid-Term Diagnostic}
+\def\examdate{February 2024}
+
+\pagestyle{headandfoot}
+
+\firstpageheader{\testname{}\\ \examdate}{}{Name: \underline{\hspace{2.5in}}}
+%\firstpageheadrule
+
+\runningheader{\testname}{}{Page \thepage\ of \numpages}
+\runningheadrule
+
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+
+\begin{document}
+
+\noindent
+\textit{This diagnostic exam will have three portions: a written multiple-choice quiz, a written free-response exam, and a practical implementation problem set. The multiple-choice portion will be timed at only 30 minutes, but you may take as much time as you wish on the free-response and practical portions, provided they are both completed within club hours (before 4:30 PM).} \\
+
+\noindent
+\textit{Answer the following questions to the best of your ability. No points will be removed for incorrect answers, so answer as many as you can.}
+
+\begin{questions} %------------------------------------------
+
+\section{Multiple Choice Questions}
+
+\fullwidth{\textit{Evaluate the following excerpts of Java source code. This section is intended to test your base knowledge of the Java Standard Programming Language, Version 17. Assume that all necessary class structure, imports, and other preamble information is already in place and that all programs are syntactically correct unless otherwise stated.}}
+
+% example
+
+\question[1]{}
+
+\begin{verbatim}
+
+String[] arr = { "1", "2", "3", "4" };
+System.out.println(Arrays.stream(arr)
+  .mapToInt(Integer::parseInt)
+  .sum());
+\end{verbatim}
+
+\begin{choices}
+  \choice {\tt 3}
+  \choice {\tt 7}
+  \choice {\tt 10}
+  \choice \textit{Error, No Output}
+\end{choices}
+
+\question[1]{What is the sum of $64_{8}$ and $55_{8}$?}
+
+\begin{choices}
+  \choice $111_{2}$
+  \choice $11001_{2}$
+  \choice $1100001_{2}$
+  \choice $111001_{2}$
+  \choice $1100111_{2}$
+\end{choices}
+
+\question[1]{}
+
+\begin{verbatim}
+System.out.println(Math.pow(5,3));
+\end{verbatim}
+
+\begin{choices}
+  \choice {\tt 8.0}
+  \choice {\tt 25}
+  \choice {\tt 15.0}
+  \choice {\tt 25.0}
+\end{choices}
+
+\begin{minipage}{\textwidth}
+\question[1]{Determine the output of the following program excerpt.}
+
+\begin{verbatim}
+public int count(String[] data) {
+  int result = 0;
+  try {
+    for (String s: data)
+      result += s.length();
+  }
+
+  catch {
+    result *= -1;
+  }
+
+  return result;
+}
+
+int v = count(new String[] { "AA", "B", null, "CA", null, "CCC" });
+System.out.println(v);
+\end{verbatim}
+
+\begin{choices}
+  \choice {\tt 0}
+  \choice {\tt -1}
+  \choice {\tt 3}
+  \choice {\tt -3}
+  \choice {\tt 8}
+\end{choices}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+\begin{verbatim}
+public void sort(int[] data) {
+  sort(data, 0);
+}
+
+public void sort(int[] data, int i) {
+  if (i < data.length - 1) {
+    int j = get_min_index(data, i);
+    int temp = data[j];
+    data[j] = data[i];
+    data[i] = temp;
+    <*1>
+  }
+}
+
+public int get_min_index(int[] data, int i) {
+  if (i == data.length - 1)
+    return i;
+  int j = get_min_index(data, i + 1);
+  if (data[i] < data[j])
+    return i;
+  return j;
+}
+\end{verbatim}
+
+\question[1]{Which of the following can replace {\tt $<$*1$>$} in the code to the right so that method {\tt sort(int[], int)} correctly sorts the elements of {\tt data} into ascending order?}
+
+\begin{enumerate}[I]
+  \item {\tt sort(data, i+1)}
+  \item {\tt sort(data, i\textasciicircum2)}
+  \item {\tt sort(data, i >> 1)}
+\end{enumerate}
+
+\begin{choices}
+  \choice I only
+  \choice II only
+  \choice III only
+  \choice I and II
+  \choice I, II, and III
+\end{choices}
+
+\end{minipage}
+
+% Stacks
+
+% Two's Complement
+
+% Order Traversals
+
+% Inheritance
+
+\section{Free Response Questions}
+
+\fullwidth{\textit{Read, analyze, and respond to the following questions. These questions may have multiple correct answer choices. This section is intended to test your understanding of applying fundamental competitive programming topics as shown throughout the year. There will only be three questions per page.}}
+
+\fullwidth{\textit{Unless told otherwise, solve every problem by writing either complete Java code or Java-styled pseudocode. Make sure to be concise, and avoid writing boilerplate class implementations or input code.}}
+
+% string manipulation
+
+\question[1]{}
+
+\vspace{\stretch{1}}
+
+% sorting
+
+\question[1]{}
+
+\vspace{\stretch{1}}
+
+% data structure manipulation
+
+\question[1]{}
+
+\vspace{\stretch{1}}
+
+\newpage
+
+% Priority Queues
+\question[1]{The values $[23_{4}, -3_{5}, 0x18, 19_{8}, 0b1101, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
+
+\begin{enumerate}[(a)]
+  \item Draw the current state of $Q$ in tree form.
+  \item Draw the current state of $Q$ in array form.
+\end{enumerate}
+
+The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$,
+$push(Q, 10_{2} >> 2)$, $push(Q, -8_{2})$, $pop(Q)$, $pop(Q)$
+
+\begin{enumerate}[resume]
+  \item Draw the new state of $Q$ in tree form.
+  \item Draw the new state of $Q$ in
+\end{enumerate}
+
+\newpage
+
+% permutations
+
+\question[1]{Given an array $A = [3, 9, 2, 9, 10, 0]$, write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algoritm.}
+
+\vspace{\stretch{1}}
+
+% knapsack permutation
+
+\question[1]{}
+
+\vspace{\stretch{1}}
+
+% Graph Theory
+
+\question[1]{}
+
+\vspace{\stretch{1}}
+
+\end{questions}
+
+\end{document}
