@@ -34,7 +34,7 @@
 \textit{This diagnostic exam will have three portions: a written multiple-choice quiz, a written free-response exam, and a practical implementation problem set. The multiple-choice portion will be timed at only 30 minutes, but you may take as much time as you wish on the free-response and practical portions, provided they are both completed within club hours (before 4:30 PM).} \\
 
 \noindent
-\textit{Answer the following questions to the best of your ability. No points will be removed for incorrect answers, so answer as many as you can.}
+\textit{Answer the following questions to the best of your ability. No points will be removed for incorrect answers, so answer as many as you can. Remember that the purpose of this exam is to guage what you know. This test does not affect your qualification for invitation-only teams, and many of the topics covered on this exam may not have been covered in weekly lectures throughout the year.}
 
 \begin{questions} %------------------------------------------
 
@@ -74,7 +74,7 @@ System.out.println(Arrays.stream(arr)
 \question[1]{}
 
 \begin{verbatim}
-System.out.println(Math.pow(5,3));
+System.out.println(Math.pow(5,2));
 \end{verbatim}
 
 \begin{choices}
@@ -143,7 +143,7 @@ public int get_min_index(int[] data, int i) {
 
 \question[1]{Which of the following can replace {\tt $<$*1$>$} in the code to the right so that method {\tt sort(int[], int)} correctly sorts the elements of {\tt data} into ascending order?}
 
-\begin{enumerate}[I]
+\begin{enumerate}[label=\Roman*.]
   \item {\tt sort(data, i+1)}
   \item {\tt sort(data, i\textasciicircum2)}
   \item {\tt sort(data, i >> 1)}
@@ -159,7 +159,30 @@ public int get_min_index(int[] data, int i) {
 
 \end{minipage}
 
+% string question
+
+\begin{minipage}{\textwidth}
+  \question[1]{What character value denotes the end of a string? (\textit{Hint: NULL})}
+
+\begin{choices}
+  \choice 0
+  \choice -1
+  \choice Character.MAX\_VALUE
+  \choice Character.MIN\_VALUE
+\end{choices}
+\end{minipage}
+
 % Stacks
+\begin{minipage}{\textwidth}
+  \question[1]{Stack $S$ contains $[4, 5, 8, 3, 8, 9]$. What would be returned by $pop(S)$ after the following operations (in order): $pop(S)$, $push(S, 10)$, $pop(S)$, $pop(S)$,  and $push(8)$. \textit{Assume that all operations are done to the end of the array-like stack, at position N.}}
+
+\begin{choices}
+  \choice 4
+  \choice 8
+  \choice 5
+  \choice 9
+\end{choices}
+\end{minipage}
 
 % Two's Complement
 
@@ -171,7 +194,17 @@ public int get_min_index(int[] data, int i) {
 
 \fullwidth{\textit{Read, analyze, and respond to the following questions. These questions may have multiple correct answer choices. This section is intended to test your understanding of applying fundamental competitive programming topics as shown throughout the year. There will only be three questions per page.}}
 
-\fullwidth{\textit{Unless told otherwise, solve every problem by writing either complete Java code or Java-styled pseudocode. Make sure to be concise, and avoid writing boilerplate class implementations or input code.}}
+\fullwidth{\textit{Unless told otherwise, solve every problem by writing either complete Java code or pseudocode. Make sure to be concise, and avoid writing boilerplate class implementations or input code.}}
+
+% bubble sort question
+\question[1]{Write the pseudocode for the Bubble Sort algorithm.}
+
+\vspace{\stretch{1}}
+
+% thought question about queues/stacks
+\question[1]{Write a class structure with the methods $pop(X)$ and $push()$ that uses only stacks yet emulates a queue's behavior (FIFO)}
+
+\vspace{\stretch{1}}
 
 % string manipulation
 
@@ -194,26 +227,41 @@ public int get_min_index(int[] data, int i) {
 \newpage
 
 % Priority Queues
-\question[1]{The values $[23_{4}, -3_{5}, 0x18, 19_{8}, 0b1101, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
+\question[5]{The values $[23_{4}, -3_{5}, 0x18, 19_{8}, 0b1101, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
 
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\Alph*)]
   \item Draw the current state of $Q$ in tree form.
+
+\vspace{\stretch{1}}
+
   \item Draw the current state of $Q$ in array form.
+
+\vspace{\stretch{1}}
+
 \end{enumerate}
 
-The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$,
-$push(Q, 10_{2} >> 2)$, $push(Q, -8_{2})$, $pop(Q)$, $pop(Q)$
+The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$, $push(Q, 10_{2} >> 2)$, $push(Q, -8_{2})$, $pop(Q)$, $pop(Q)$ \\
 
-\begin{enumerate}[resume]
+\begin{enumerate}[resume,label=(\Alph*)]
   \item Draw the new state of $Q$ in tree form.
-  \item Draw the new state of $Q$ in
+
+\vspace{\stretch{1}}
+
+  \item Draw the new state of $Q$ in array form.
+
+\vspace{\stretch{1}}
+
+  \item What value would be returned by another call of $pop(Q)$?
+
+\vspace{\stretch{1}}
+
 \end{enumerate}
 
 \newpage
 
 % permutations
 
-\question[1]{Given an array $A = [3, 9, 2, 9, 10, 0]$, write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algoritm.}
+\question[1]{Given an array $A = [9, 2, 9, 0]$, write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algoritm.}
 
 \vspace{\stretch{1}}
 
