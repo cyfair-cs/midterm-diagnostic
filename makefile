@@ -36,6 +36,9 @@ all: $(PROJNAME).pdf
 # -interactive=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 
+key: key.tex
+	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $<
+
 $(PROJNAME).pdf: $(PROJNAME).tex
 	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $<
 

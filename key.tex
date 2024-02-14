@@ -11,6 +11,7 @@
 \usetikzlibrary{calc}
 \usepackage{lipsum}
 \usepackage{float}
+\usepackage{color,soul}
 % \usepackage{times}
 
 \def\testname{CFHS Competitive CS Mid-Term Diagnostic}
@@ -49,10 +50,20 @@
   \choice True
   \choice False
   \choice 225
-  \choice 15
+  \choice \textcolor{red}{15}
   \choice 9 \\
 \end{choices}
 \end{minipage}
+
+By operator precenence, we would do \& before $|$.
+
+\begin{align*}
+  11_{10} = 1011_{2}, 9_{10} = 1001_{2} \\
+  1011_{2} \& 1001_{2} = 1001_{2} \\
+  14_{10} = 1110_{2} \\
+  1110_{2} | 1001_{2} = 1111_{2} \\
+  1111_{2} = 2^{3} + 2^{2} + 2_{1} + 2^{0} = 15_{10} \\
+\end{align*}
 
 % functional programming/streams
 \begin{minipage}{\textwidth}
@@ -68,11 +79,13 @@ System.out.println(Arrays.stream(arr)
 \begin{choices}
   \choice {\tt 3}
   \choice {\tt 7}
-  \choice {\tt 10}
+  \choice \textcolor{red}{\tt 10}
   \choice {\tt 4}
   \choice \textit{Error, No Output} \\
 \end{choices}
 \end{minipage}
+
+The code snippet just converts all of the values in the array to integers then sums them up. $1+2+3+4=10$. \\
 
 \begin{minipage}{\textwidth}
 \question[1]{What is the sum of $64_{8}$ and $55_{8}$? \\}
@@ -80,7 +93,7 @@ System.out.println(Arrays.stream(arr)
 \begin{choices}
   \choice $111_{2}$
   \choice $11001_{2}$
-  \choice $1100001_{2}$
+  \choice \textcolor{red}{$1100001_{2}$}
   \choice $111001_{2}$
   \choice $1100111_{2}$ \\
 \end{choices}
@@ -99,9 +112,17 @@ System.out.println(Math.pow(0x5,02));
   \choice {\tt 25}
   \choice {\tt 15.0}
   \choice {\tt 0x10}
-  \choice {\tt 25.0} \\
+  \choice \textcolor{red}{\tt 25.0} \\
 \end{choices}
 \end{minipage}
+
+\begin{enumerate}
+  \item {\tt 0x5} is just $5_{16}$, which is equal to $5_{10}$.
+  \item {\tt 02} is just $2_{8}$, which is equal to $2_{10}$.
+  \item {\tt Math.pow(a,b)} returns a \textit{double} representing $a^{b}$.
+\end{enumerate}
+
+Thus, {\tt Math.pow(0x5,02)} is equivalent to $5^{2}$ in float notation.
 
 \begin{minipage}{\textwidth}
 \question[1]{Determine the output of the following program excerpt.}
@@ -130,10 +151,12 @@ System.out.println(v);
   \choice {\tt 0}
   \choice {\tt -1}
   \choice {\tt 3}
-  \choice {\tt -3}
-  \choice {\tt 8}
+  \choice \textcolor{red}{\tt -3}
+  \choice {\tt 8} \\
 \end{choices}
 \end{minipage}
+
+First, it adds the lengths of $v[0]$ and $v[1]$ to result, for a total of 3. Upon hitting $v[2]$, it reaches a NullPointerException for attempting to call a method on a null reference, falls back to the catch block (which simply negates the result counter, leading to $-3$), and returns result.
 
 \begin{minipage}{\textwidth}
 
@@ -186,7 +209,7 @@ public int get_min_index(int[] data, int i) {
   \question[1]{What character value denotes the end of a string? (\textit{Hint: NULL}) \\}
 
 \begin{choices}
-  \choice 0
+  \choice \textcolor{red}{0}
   \choice -1
   \choice Character.MAX\_VALUE
   \choice Character.MIN\_VALUE
@@ -194,18 +217,22 @@ public int get_min_index(int[] data, int i) {
 \end{choices}
 \end{minipage}
 
+NULL = 0 \\
+
 % Stacks
 \begin{minipage}{\textwidth}
   \question[1]{Stack $S$ contains $[4, 5, 8, 3, 8, 9]$. What would be returned by $pop(S)$ after the following operations (in order): $pop(S)$, $push(S, 10)$, $pop(S)$, $pop(S)$,  and $push(8)$. \textit{Assume that all operations are done to the end of the array-like stack, at position N.} \\ }
 
 \begin{choices}
   \choice 4
-  \choice 8
+  \choice \textcolor{red}{8}
   \choice 3
   \choice 5
   \choice 9 \\
 \end{choices}
 \end{minipage}
+
+It is a stack, so if the last thing we push is 8, then the next thing we will pop will be 8. \\
 
 % recursion
 \begin{minipage}{\textwidth}
@@ -228,9 +255,15 @@ public static int abc(int x) {
   \choice 51
   \choice 96
   \choice 24
-  \choice 53
+  \choice \textcolor{red}{53}
   \choice 30 \\
 \end{choices}
+
+$abc(0) = abc(2) = 53$ \\
+$abc(2) = 6 + abc(8) = 6 + 47 = 53$ \\
+$abc(8) = 24 + abc(26) = 24 + 23 = 47$ \\
+$abc(26) = 23$ \\
+
 \end{minipage}
 
 % code analysis
@@ -258,12 +291,14 @@ switch (number) {
 \end{verbatim}
 
 \begin{choices}
-  \choice {\tt 20\\30}
+  \choice \textcolor{red}{\tt 20\\30}
   \choice {\tt 20}
   \choice {\tt 10\\30}
   \choice {\tt 30}
   \choice {\tt Not in 10, 20 or 30} \\
 \end{choices}
+
+It begins execution on case 20, printing out {\tt 20}, then falls through to case 30, printing out {\tt 30}. \\
 
 \end{minipage}
 
@@ -276,8 +311,11 @@ switch (number) {
   \choice $11001001_{2}$
   \choice $11001000_{2}$
   \choice $01001001_{2}$
-  \choice $11001010_{2}$ \\ % answer
+  \choice \textcolor{red}{$11001010_{2}$} \\
 \end{choices}
+
+  All two's complement means is that because this is a negative number, we flip all of the bits of its positive version and add 1. $54_{10} = 00110110_{2}$, which flipped is $11001001_{2}$, plus one would be $11001010_{2}$. \\
+
 \end{minipage}
 
 % Binary Search Tree
@@ -287,12 +325,15 @@ switch (number) {
 90, 20, 66, -2, 393, 8675, 10, 5 \\
 
 \begin{choices}
-  \choice -2
+  \choice \textcolor{red}{$-2$}
   \choice 393
   \choice 5
   \choice 10
   \choice 66 \\
 \end{choices}
+
+The leftmost node of a binary search tree is always the minimum value, so this would be -2. \\
+
 \end{minipage}
 
 % Inheritance
@@ -302,11 +343,22 @@ switch (number) {
 
 \begin{choices}
   \choice {\tt class Dog extends Pet implements Mammal, Feline}
-  \choice {\tt class Dog extends Mammal implements Pet, Canine}
+  \choice \textcolor{red}{\tt class Dog extends Mammal implements Pet, Canine}
   \choice {\tt class Dog extends Canine implements Mammal, Pet}
   \choice {\tt class Dog extends Mammal implements Pet, Feline}
   \choice {\tt class Dog implements Mammal, Pet, Canine} \\
 \end{choices}
+
+\begin{enumerate}[label=\Alph*]
+  \item Does not work, because dogs are not feline.
+  \item Works, because dogs are mammals first, sometimes pets, and not all mammals are canine
+  \item Does not work because all canines are mammals
+  \item Does not work because dogs are not feline
+  \item Does not work because all dogs are mammals and canine
+\end{enumerate}
+
+Note: obviously, the ideal structure would be for dogs to extend canines which extend mammals all while implementing the pet interface, but this is a limitation of what could be shown through the answer choices. 
+
 \end{minipage}
 
 \newpage
@@ -323,6 +375,10 @@ switch (number) {
 
 \question[1]{Rank the following operators by precedence: {\tt +}, {\tt $<<$}, {\tt \&}, {\tt |}, {\tt !=}, {\tt /}, {\tt =}, {\tt ++}, {\tt $<$=}, and {\tt \textasciicircum}} \\
 
+Answer: \textcolor{red}{\tt $++$, /, $<<$, $<=$, $!=$, \&, \textasciicircum, |, =} \\
+
+Follow UMBREBLA, see the java operator heirarchy for details. \\
+
 % integer width
 
 \question[8]{Fill in the table for the width of each integer type in both bits and bytes. \\}
@@ -332,14 +388,14 @@ switch (number) {
 \begin{tabular}{|l|l|l|}
   \hline
   Type & Bits & Bytes \\ \hline
-  boolean && \\ \hline
-  char && \\ \hline
-  byte && \\ \hline
-  short && \\ \hline
-  int && \\ \hline
-  long && \\ \hline
-  float && \\ \hline
-  double && \\ \hline
+  boolean & \textcolor{red}{1} & \textcolor{red}{1} \\ \hline
+  char & \textcolor{red}{16} & \textcolor{red}{2} \\ \hline
+  byte & \textcolor{red}{8} & \textcolor{red}{1} \\ \hline
+  short & \textcolor{red}{16} & \textcolor{red}{2} \\ \hline
+  int & \textcolor{red}{32} & \textcolor{red}{4} \\ \hline
+  long & \textcolor{red}{64} & \textcolor{red}{8} \\ \hline
+  float & \textcolor{red}{32} & \textcolor{red}{4} \\ \hline
+  double & \textcolor{red}{64} & \textcolor{red}{8} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -348,12 +404,16 @@ switch (number) {
 \question[2]{Given array $A = [3, 9]$,}
 
 \begin{enumerate}[label=(\Alph*)]
-  \item Write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algorithm.
+  \item Write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algorithm. \\
+
+  \textcolor{red}{$[]$, $[3]$, $[9]$, $[3, 9]$, $[9, 3]$}
 
 \vspace{\stretch{1}}
 
-  \item Write every permutation of $A$ that would be generated by a \textit{consistent size} permuting algorithm.
-    
+  \item Write every permutation of $A$ that would be generated by a \textit{consistent size} permuting algorithm. \\
+   
+  \textcolor{red}{$[3,9]$ and $[9,3]$}
+
 \vspace{\stretch{1}}
 \end{enumerate}
 
@@ -374,22 +434,55 @@ public static int hello() {
     return b;
   }
 
-  return a;
+  return a; <-- This is the problem
 }
 \end{verbatim}
+
+\begin{enumerate}[label=(\alph*)]
+  \item There is an else statement that returns, so it will never hit the final return statement.
+  \item Compiler Error (This will be caught by the compiler, and will prevent the program from running.)
+\end{enumerate}
+
 \end{minipage}
 
 % bubble sort question
 \question[1]{Write the pseudocode for the Bubble Sort algorithm.}
 
-\vspace{\stretch{1}}
+\begin{verbatim}
+function BUBBLESORT(ARRAY)							            
+    # loop through the array multiple times
+    loop INDEX from 0 to size of ARRAY - 1					    
+        # consider every pair of elements except the sorted ones
+        loop INDEX2 from 0 to size of ARRAY - 2 - INDEX			
+            if ARRAY[INDEX2] > ARRAY[INDEX2 + 1] then			
+                # swap elements if they are out of order
+                TEMP = ARRAY[INDEX2]						    
+                ARRAY[INDEX2] = ARRAY[INDEX2 + 1]				
+                ARRAY[INDEX2 + 1] = TEMP					    
+\end{verbatim}
 
 % thought question about queues/stacks
 \question[1]{Write a class structure with the methods $pop()$ and $push(X)$ that uses only 2 stacks yet emulates a queue's behavior (FIFO)}
 
-\vspace{\stretch{1}}
+\begin{verbatim}
+stack A, B
 
-\newpage
+function POP()
+  if A is empty
+    return nothing or null or -1
+
+  return A.pop()
+
+function PUSH(VALUE)
+  while A is not empty
+    B.push(A.pop())
+
+  A.push(VALUE)
+
+  while B is not empty
+    A.push(B.pop())
+
+\end{verbatim}
 
 % graph theory
 
@@ -428,13 +521,19 @@ public static int hello() {
   \item Circle all of the following characteristics that represent this graph.
 
   \begin{itemize}
-    \item Cyclical/Acyclical
-    \item Weighted/Unweighted
-    \item Directed/Undirected \\
+    \item \textcolor{red}{Cyclical}/Acyclical
+    \item \textcolor{red}{Weighted}/Unweighted
+    \item \textcolor{red}{Directed}/Undirected \\
   \end{itemize}
 
   \item What part of a graph do the places represent? \\
+
+  \textcolor{red}{Nodes}
+
   \item What part of a graph do the connections represent? \\
+
+  \textcolor{red}{Edges}
+
   \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston? \\ \\
   \item (i) What is the cheapest flight path between Tampa and Boston, and (ii) how much does it cost? \\ \\
 \end{enumerate}
