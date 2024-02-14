@@ -1,7 +1,7 @@
 \documentclass[11pt,addpoints]{exam}
 \usepackage{amsfonts,amssymb,amsmath, amsthm}
 \usepackage{enumitem}
-\usepackage{graphicx}
+\usepackage{graphicx,float}
 \usepackage{systeme}
 \usepackage{pgf,tikz,pgfplots}
 \pgfplotsset{compat=1.15}
@@ -13,7 +13,7 @@
 \usepackage{float}
 % \usepackage{times}
 
-\def\testname{Cy-Fair HS Competitive CS Mid-Term Diagnostic}
+\def\testname{CFHS Competitive CS Mid-Term Diagnostic}
 \def\examdate{February 2024}
 
 \pagestyle{headandfoot}
@@ -31,7 +31,7 @@
 \begin{document}
 
 \noindent
-\textit{This diagnostic exam will have three portions: a written multiple-choice quiz, a written free-response exam, and a practical implementation problem set. The multiple-choice portion will be timed at only 30 minutes, but you may take as much time as you wish on the free-response and practical portions, provided they are both completed within club hours (before 4:30 PM).} \\
+\textit{This diagnostic exam will have three portions: a written multiple-choice quiz, a written free-response exam, and a practical implementation problem set. The multiple-choice portion will be timed at only 30 minutes, but you may take as much time as you wish on the free-response and practical portions, provided they are both completed within club hours (before 4:30 PM).}
 
 \noindent
 \textit{Answer the following questions to the best of your ability. No points will be removed for incorrect answers, so answer as many as you can. Remember that the purpose of this exam is to guage what you know. This test does not affect your qualification for invitation-only teams, and many of the topics covered on this exam may not have been covered in weekly lectures throughout the year.}
@@ -40,14 +40,25 @@
 
 \section{Multiple Choice Questions}
 
-\fullwidth{\textit{Evaluate the following excerpts of Java source code. This section is intended to test your base knowledge of the Java Standard Programming Language, Version 17. Assume that all necessary class structure, imports, and other preamble information is already in place and that all programs are syntactically correct unless otherwise stated.}}
+\fullwidth{\textit{Evaluate the following excerpts of Java source code. This section is intended to test your base knowledge of the Java Standard Programming Language, Version 17. Assume that all necessary class structure, imports, and other preamble information is already in place and that all programs are syntactically correct unless otherwise stated. \\ }}
 
-% example
+\begin{minipage}{\textwidth}
+\question[1]{What is the value of the expression {\tt 14|11\&9} \\ }
 
-\question[1]{}
+\begin{choices}
+  \choice True
+  \choice False
+  \choice 225
+  \choice 15
+  \choice 9 \\
+\end{choices}
+\end{minipage}
+
+% functional programming/streams
+\begin{minipage}{\textwidth}
+\question[1]{What is the output of this code segment?}
 
 \begin{verbatim}
-
 String[] arr = { "1", "2", "3", "4" };
 System.out.println(Arrays.stream(arr)
   .mapToInt(Integer::parseInt)
@@ -58,31 +69,39 @@ System.out.println(Arrays.stream(arr)
   \choice {\tt 3}
   \choice {\tt 7}
   \choice {\tt 10}
-  \choice \textit{Error, No Output}
+  \choice {\tt 4}
+  \choice \textit{Error, No Output} \\
 \end{choices}
+\end{minipage}
 
-\question[1]{What is the sum of $64_{8}$ and $55_{8}$?}
+\begin{minipage}{\textwidth}
+\question[1]{What is the sum of $64_{8}$ and $55_{8}$? \\}
 
 \begin{choices}
   \choice $111_{2}$
   \choice $11001_{2}$
   \choice $1100001_{2}$
   \choice $111001_{2}$
-  \choice $1100111_{2}$
+  \choice $1100111_{2}$ \\
 \end{choices}
+\end{minipage}
 
-\question[1]{}
+% math.pow question
+\begin{minipage}{\textwidth}
+\question[1]{Evaluate the following code segment.}
 
 \begin{verbatim}
-System.out.println(Math.pow(5,2));
+System.out.println(Math.pow(0x5,02));
 \end{verbatim}
 
 \begin{choices}
   \choice {\tt 8.0}
   \choice {\tt 25}
   \choice {\tt 15.0}
-  \choice {\tt 25.0}
+  \choice {\tt 0x10}
+  \choice {\tt 25.0} \\
 \end{choices}
+\end{minipage}
 
 \begin{minipage}{\textwidth}
 \question[1]{Determine the output of the following program excerpt.}
@@ -104,6 +123,7 @@ public int count(String[] data) {
 
 int v = count(new String[] { "AA", "B", null, "CA", null, "CCC" });
 System.out.println(v);
+
 \end{verbatim}
 
 \begin{choices}
@@ -116,6 +136,9 @@ System.out.println(v);
 \end{minipage}
 
 \begin{minipage}{\textwidth}
+
+\question[1]{Which of the following can replace {\tt $<$*1$>$} in the code segment below so that method {\tt sort(int[], int)} correctly sorts the elements of {\tt data} into ascending order?}
+
 \begin{verbatim}
 public void sort(int[] data) {
   sort(data, 0);
@@ -141,8 +164,6 @@ public int get_min_index(int[] data, int i) {
 }
 \end{verbatim}
 
-\question[1]{Which of the following can replace {\tt $<$*1$>$} in the code to the right so that method {\tt sort(int[], int)} correctly sorts the elements of {\tt data} into ascending order?}
-
 \begin{enumerate}[label=\Roman*.]
   \item {\tt sort(data, i+1)}
   \item {\tt sort(data, i\textasciicircum2)}
@@ -154,7 +175,7 @@ public int get_min_index(int[] data, int i) {
   \choice II only
   \choice III only
   \choice I and II
-  \choice I, II, and III
+  \choice I, II, and III \\
 \end{choices}
 
 \end{minipage}
@@ -162,39 +183,201 @@ public int get_min_index(int[] data, int i) {
 % string question
 
 \begin{minipage}{\textwidth}
-  \question[1]{What character value denotes the end of a string? (\textit{Hint: NULL})}
+  \question[1]{What character value denotes the end of a string? (\textit{Hint: NULL}) \\}
 
 \begin{choices}
   \choice 0
   \choice -1
   \choice Character.MAX\_VALUE
   \choice Character.MIN\_VALUE
+  \choice 1 \\ 
 \end{choices}
 \end{minipage}
 
 % Stacks
 \begin{minipage}{\textwidth}
-  \question[1]{Stack $S$ contains $[4, 5, 8, 3, 8, 9]$. What would be returned by $pop(S)$ after the following operations (in order): $pop(S)$, $push(S, 10)$, $pop(S)$, $pop(S)$,  and $push(8)$. \textit{Assume that all operations are done to the end of the array-like stack, at position N.}}
+  \question[1]{Stack $S$ contains $[4, 5, 8, 3, 8, 9]$. What would be returned by $pop(S)$ after the following operations (in order): $pop(S)$, $push(S, 10)$, $pop(S)$, $pop(S)$,  and $push(8)$. \textit{Assume that all operations are done to the end of the array-like stack, at position N.} \\ }
 
 \begin{choices}
   \choice 4
   \choice 8
+  \choice 3
   \choice 5
-  \choice 9
+  \choice 9 \\
 \end{choices}
 \end{minipage}
 
-% Two's Complement
+% recursion
+\begin{minipage}{\textwidth}
 
-% Order Traversals
+\question[1]{Given the definition of method {\tt abc(int)}, What is the output of {\tt abc(0)}?}
+
+
+\begin{verbatim}
+public static int abc(int x) {
+  if (x > 10)
+    return x - 3;
+  else {
+    x *= 3;
+    return x + abc(x + 2);
+  }
+}
+\end{verbatim}
+
+\begin{choices}
+  \choice 51
+  \choice 96
+  \choice 24
+  \choice 53
+  \choice 30 \\
+\end{choices}
+\end{minipage}
+
+% code analysis
+\begin{minipage}{\textwidth}
+\question[1]{What is the output of the following code segment?}
+
+\begin{verbatim}
+int number = 20;
+
+switch (number) {
+  case 10:
+    System.out.println("10");
+    break;
+
+  case 20:
+    System.out.println("20");
+    break;
+
+  case 30:
+    System.out.println("30");
+
+  default:
+    System.out.println("Not in 10, 20 or 30");
+}
+\end{verbatim}
+
+\begin{choices}
+  \choice {\tt 20\\30}
+  \choice {\tt 20}
+  \choice {\tt 10\\30}
+  \choice {\tt 30}
+  \choice {\tt Not in 10, 20 or 30} \\
+\end{choices}
+
+\end{minipage}
+
+% Two's Complement
+\begin{minipage}{\textwidth}
+\question[1]{Which of the following is the signed 8-bit two's complement representation of $-54$? \\}
+
+\begin{choices}
+  \choice $00110110_{2}$
+  \choice $11001001_{2}$
+  \choice $11001000_{2}$
+  \choice $01001001_{2}$
+  \choice $11001010_{2}$ \\ % answer
+\end{choices}
+\end{minipage}
+
+% Binary Search Tree
+\begin{minipage}{\textwidth}
+\question[1]{After inserting the following values into a binary search tree in order, what is the value of the left-most node? \\ }
+
+90, 20, 66, -2, 393, 8675, 10, 5 \\
+
+\begin{choices}
+  \choice -2
+  \choice 393
+  \choice 5
+  \choice 10
+  \choice 66 \\
+\end{choices}
+\end{minipage}
 
 % Inheritance
 
+\begin{minipage}{\textwidth}
+\question[1]{Which of the following class declaration signatures best represents the relationship between animal classes? \\ }
+
+\begin{choices}
+  \choice {\tt class Dog extends Pet implements Mammal, Feline}
+  \choice {\tt class Dog extends Mammal implements Pet, Canine}
+  \choice {\tt class Dog extends Canine implements Mammal, Pet}
+  \choice {\tt class Dog extends Mammal implements Pet, Feline}
+  \choice {\tt class Dog implements Mammal, Pet, Canine} \\
+\end{choices}
+\end{minipage}
+
+\newpage
+
 \section{Free Response Questions}
 
-\fullwidth{\textit{Read, analyze, and respond to the following questions. These questions may have multiple correct answer choices. This section is intended to test your understanding of applying fundamental competitive programming topics as shown throughout the year. There will only be three questions per page.}}
+\fullwidth{\textit{Read, analyze, and respond to the following questions. These questions may have multiple correct answer choices. This section is intended to test your understanding of applying fundamental competitive programming topics as shown throughout the year.}}
+
+\fullwidth{\textit{Remember, not all of the content covered in any portion of this exam has been covered during a lecture, and this exam is simply to guage how much you each have grown. Simply try your best, and answer as many questions as you can to the best of your ability.}}
 
 \fullwidth{\textit{Unless told otherwise, solve every problem by writing either complete Java code or pseudocode. Make sure to be concise, and avoid writing boilerplate class implementations or input code.}}
+
+% operator precedence
+
+\question[1]{Rank the following operators by precedence: {\tt +}, {\tt $<<$}, {\tt \&}, {\tt |}, {\tt !=}, {\tt /}, {\tt =}, {\tt ++}, {\tt $<$=}, and {\tt \textasciicircum}} \\
+
+% integer width
+
+\question[1]{Fill in the table for the width of each integer type in both bits and bytes. \\}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+  \hline
+  Type & Bits & Bytes \\ \hline
+  boolean && \\ \hline
+  char && \\ \hline
+  byte && \\ \hline
+  short && \\ \hline
+  int && \\ \hline
+  long && \\ \hline
+  float && \\ \hline
+  double && \\ \hline
+\end{tabular}
+\end{table}
+
+% permutations
+
+\question[1]{Given array $A = [3, 9, 2, 9, 0, 10, 1]$,}
+
+\begin{enumerate}[label=(\Alph*)]
+  \item Write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algoritm.
+
+\vspace{\stretch{1}}
+
+  \item Write every permutation of $A$ that would be generated by a \textit{consistent size} permuting algorithm.
+    
+\vspace{\stretch{1}}
+\end{enumerate}
+
+% debugging
+\begin{minipage}{\textwidth}
+\question[1]{Highlight the error(s) in the following code segment, and explain both (a) why they are errors and (b) what type of error they are.}
+
+\begin{verbatim}
+public static int hello() {
+  int a = 5;
+  int b = 8;
+
+  if (a > b) {
+    return a;
+  }
+
+  else {
+    return b;
+  }
+
+  return a;
+}
+\end{verbatim}
+\end{minipage}
 
 % bubble sort question
 \question[1]{Write the pseudocode for the Bubble Sort algorithm.}
@@ -202,23 +385,13 @@ public int get_min_index(int[] data, int i) {
 \vspace{\stretch{1}}
 
 % thought question about queues/stacks
-\question[1]{Write a class structure with the methods $pop(X)$ and $push()$ that uses only stacks yet emulates a queue's behavior (FIFO)}
+\question[1]{Write a class structure with the methods $pop()$ and $push(X)$ that uses only 2 stacks yet emulates a queue's behavior (FIFO)}
 
 \vspace{\stretch{1}}
 
-% string manipulation
+\newpage
 
-\question[1]{}
-
-\vspace{\stretch{1}}
-
-% sorting
-
-\question[1]{}
-
-\vspace{\stretch{1}}
-
-% data structure manipulation
+% graph theory
 
 \question[1]{}
 
@@ -227,7 +400,7 @@ public int get_min_index(int[] data, int i) {
 \newpage
 
 % Priority Queues
-\question[5]{The values $[23_{4}, -3_{5}, 0x18, 19_{8}, 0b1101, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
+\question[5]{The values $[23_{4}, -3_{5}, 18_{16}, 19_{8}, 1101_{2}, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
 
 \begin{enumerate}[label=(\Alph*)]
   \item Draw the current state of $Q$ in tree form.
@@ -259,24 +432,32 @@ The following operations are performed on $A$ in the following order: $pop(Q)$, 
 
 \newpage
 
-% permutations
 
-\question[1]{Given an array $A = [9, 2, 9, 0]$, write every permutation of $A$ that would be generated by an \textit{inconsistent size} permuting algoritm.}
+\section{Personal Questions}
+
+\fullwidth{\textit{These questions are simply for us officers (namely Mufaro) to understand how to best serve the computer science club in the future and self-evaluate our performance in training the rest of the club. This section will not count towards your score. \\ }}
+
+\question{How strongly, on a scale of 1 to 10 (10 being the strongest) has your understanding of computer science (in general) improved as a result of your participation in the competitive computer science club this year? \\}
+
+State your reasoning for this score. \\
 
 \vspace{\stretch{1}}
 
-% knapsack permutation
-
-\question[1]{}
+\question{What was the most useful/best thing(s) that was done/offered in through the computer science club that helped you understand competitive computer science? \\}
 
 \vspace{\stretch{1}}
 
-% Graph Theory
+\question{What criticisms/suggestions do you have for the current curriculum/club? \\}
 
-\question[1]{}
+\vspace{\stretch{1}}
+
+\question{Consider what you were intending to major/specialize in during your college/career at the beginning of the year. (a) What was it before, (b) what is it now, and (c) has it changed?}
+
+\vspace{\stretch{1}}
+
+\question{Is there anything else that you would like to tell us? \\}
 
 \vspace{\stretch{1}}
 
 \end{questions}
-
 \end{document}
