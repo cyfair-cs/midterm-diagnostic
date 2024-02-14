@@ -19,7 +19,7 @@
 
 \pagestyle{headandfoot}
 
-\firstpageheader{\testname{}\\ \examdate}{}{Name: \underline{\hspace{2.5in}}}
+\firstpageheader{\testname{}\\ \examdate}{}{KEY}
 %\firstpageheadrule
 
 \runningheader{\testname}{}{Page \thepage\ of \numpages}
@@ -30,6 +30,126 @@
 
 
 \begin{document}
+
+\section*{Answers}
+
+\subsection*{Multiple-Choice}
+
+\begin{enumerate}
+  \item D
+  \item C
+  \item C
+  \item E
+  \item D
+  \item A
+  \item A
+  \item B
+  \item D
+  \item A
+  \item E
+  \item A
+  \item C
+\end{enumerate}
+
+\subsection*{Free Response}
+
+\begin{enumerate}[resume]
+  \item {\tt $++$, /, $<<$, $<=$, $!=$, \&, \textasciicircum, |, =}
+  \item Bit Table Answer:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+  \hline
+  Type & Bits & Bytes \\ \hline
+  boolean & \textcolor{red}{1} & \textcolor{red}{1} \\ \hline
+  char & \textcolor{red}{16} & \textcolor{red}{2} \\ \hline
+  byte & \textcolor{red}{8} & \textcolor{red}{1} \\ \hline
+  short & \textcolor{red}{16} & \textcolor{red}{2} \\ \hline
+  int & \textcolor{red}{32} & \textcolor{red}{4} \\ \hline
+  long & \textcolor{red}{64} & \textcolor{red}{8} \\ \hline
+  float & \textcolor{red}{32} & \textcolor{red}{4} \\ \hline
+  double & \textcolor{red}{64} & \textcolor{red}{8} \\ \hline
+\end{tabular}
+\end{table}
+
+\item Question 16
+  \begin{enumerate}[label=(\Alph*)]
+    \item $[], [3], [9], [3, 9], [9, 3]$
+    \item $[3, 9]$ and $[9, 3]$
+  \end{enumerate}
+
+\item Question 17
+  \begin{enumerate}[label=(\alph*)]
+    \item {\tt return a;} (the last statement in the method.)
+    \item This statement will never be reached.
+    \item Compiler error.
+  \end{enumerate}
+
+\item Question 18
+\begin{verbatim}
+function BUBBLESORT(ARRAY)							            
+    # loop through the array multiple times
+    (1) loop INDEX from 0 to size of ARRAY - 1					    
+        # consider every pair of elements except the sorted ones
+        (2) loop INDEX2 from 0 to size of ARRAY - 2 - INDEX			
+            (3) if ARRAY[INDEX2] > ARRAY[INDEX2 + 1] then			
+                (4) # swap elements if they are out of order
+                TEMP = ARRAY[INDEX2]						    
+                ARRAY[INDEX2] = ARRAY[INDEX2 + 1]				
+                ARRAY[INDEX2 + 1] = TEMP					    
+\end{verbatim}
+
+\item Question 19
+\begin{verbatim}
+stack A, B
+
+(1) function POP()
+  if A is empty
+    return nothing or null or -1
+
+  return A.pop()
+
+(2) function PUSH(VALUE)
+  while A is not empty
+    B.push(A.pop())
+
+  A.push(VALUE)
+
+  while B is not empty
+    A.push(B.pop())
+
+\end{verbatim}
+
+\item Question 20
+  \begin{enumerate}[label=(\Alph*)]
+    \item Part A
+      \input{./res/graph}
+    \item Cyclical, Weighted, Directed
+    \item Nodes/Vertices
+    \item Edges/Connections/Sides
+    \item Houston, Austin, Miami, Boston, Minneapolis, Tampa, San Antonio, Los Angeles
+    \item Part F
+      \begin{enumerate}[label=(\alph*)]
+        \item Boston $\to$ Miami $\to$ Tampa
+        \item \$458
+      \end{enumerate}
+  \end{enumerate}
+
+\item Question 21
+  \begin{enumerate}[label=(\Alph*)]
+    \item Part A
+      \input{./res/tree1.tex}
+    \item $[-10, 11, -3, 17, 13, 24, 3]$
+    \item Part C
+      \input{./res/tree2.tex}
+    \item $[7, 11, 24, 17, 13]$
+    \item 7
+  \end{enumerate}
+
+\end{enumerate}
+
+\newpage
 
 \noindent
 \textit{This diagnostic exam will have three portions: a written multiple-choice quiz, a written free-response exam, and a practical implementation problem set. The multiple-choice portion will be timed at only 30 minutes, but you may take as much time as you wish on the free-response and practical portions, provided they are both completed within club hours (before 4:30 PM).}
@@ -426,11 +546,12 @@ public static int hello() {
     return b;
   }
 
-  return a; <-- This is the problem
+  return a; <-- (a) This is the problem
 }
 \end{verbatim}
 
 \begin{enumerate}[label=(\alph*)]
+  \addtocounter{enumi}{1}
   \item There is an else statement that returns, so it will never hit the final return statement.
   \item Compiler Error (This will be caught by the compiler, and will prevent the program from running.)
 \end{enumerate}
@@ -438,34 +559,34 @@ public static int hello() {
 \end{minipage}
 
 % bubble sort question
-\question[1]{Write the pseudocode for the Bubble Sort algorithm.}
+\question[4]{Write the pseudocode for the Bubble Sort algorithm.}
 
 \begin{verbatim}
 function BUBBLESORT(ARRAY)							            
     # loop through the array multiple times
-    loop INDEX from 0 to size of ARRAY - 1					    
+    (1) loop INDEX from 0 to size of ARRAY - 1					    
         # consider every pair of elements except the sorted ones
-        loop INDEX2 from 0 to size of ARRAY - 2 - INDEX			
-            if ARRAY[INDEX2] > ARRAY[INDEX2 + 1] then			
-                # swap elements if they are out of order
+        (2) loop INDEX2 from 0 to size of ARRAY - 2 - INDEX			
+            (3) if ARRAY[INDEX2] > ARRAY[INDEX2 + 1] then			
+                (4) # swap elements if they are out of order
                 TEMP = ARRAY[INDEX2]						    
                 ARRAY[INDEX2] = ARRAY[INDEX2 + 1]				
                 ARRAY[INDEX2 + 1] = TEMP					    
 \end{verbatim}
 
 % thought question about queues/stacks
-\question[1]{Write a class structure with the methods $pop()$ and $push(X)$ that uses only 2 stacks yet emulates a queue's behavior (FIFO)}
+\question[2]{Write a class structure with the methods $pop()$ and $push(X)$ that uses only 2 stacks yet emulates a queue's behavior (FIFO)}
 
 \begin{verbatim}
 stack A, B
 
-function POP()
+(1) function POP()
   if A is empty
     return nothing or null or -1
 
   return A.pop()
 
-function PUSH(VALUE)
+(2) function PUSH(VALUE)
   while A is not empty
     B.push(A.pop())
 
@@ -521,11 +642,11 @@ function PUSH(VALUE)
 
   \item What part of a graph do the places represent? \\ 
 
-  \textcolor{red}{Nodes} \\
+  \textcolor{red}{Nodes/Vertices} \\
 
-  \item What part of a graph do the connections represent?  \\
+  \item What part of a graph do the flights represent?  \\
 
-  \textcolor{red}{Edges} \\
+  \textcolor{red}{Edges/Connections/Sides} \\
 
   \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston? \\
 
