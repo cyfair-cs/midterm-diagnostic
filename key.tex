@@ -194,12 +194,14 @@ public int get_min_index(int[] data, int i) {
 \end{enumerate}
 
 \begin{choices}
-  \choice I only
+  \choice \textcolor{red}{I only}
   \choice II only
   \choice III only
   \choice I and II
   \choice I, II, and III \\
 \end{choices}
+
+II results in stack overflow/infinite recursion by infinitely switching between positions 0 and 2. III results in stack overflow by constantly returning to position 0. Only I will consistently go from position 0 to the full length of the array.
 
 \end{minipage}
 
@@ -217,7 +219,7 @@ public int get_min_index(int[] data, int i) {
 \end{choices}
 \end{minipage}
 
-NULL = 0 \\
+Strings in Java are null-terminated (a null character denotes the end of the string), and null = 0 \\
 
 % Stacks
 \begin{minipage}{\textwidth}
@@ -342,22 +344,12 @@ The leftmost node of a binary search tree is always the minimum value, so this w
 \question[1]{Which of the following class declaration signatures best represents the relationship between animal classes? \\ }
 
 \begin{choices}
-  \choice {\tt class Dog extends Pet implements Mammal, Feline}
-  \choice \textcolor{red}{\tt class Dog extends Mammal implements Pet, Canine}
-  \choice {\tt class Dog extends Canine implements Mammal, Pet}
-  \choice {\tt class Dog extends Mammal implements Pet, Feline}
-  \choice {\tt class Dog implements Mammal, Pet, Canine} \\
+    \choice {\tt class Dog extends Feline implements Bark, Meow}
+  \choice {\tt class Dog extends Canine implements Meow, Talk}
+  \choice \textcolor{red}{\tt class Dog extends Canine implements Bark, Bite}
+  \choice {\tt class Dog extends Feline implements Sing, Dance}
+  \choice {\tt class Dog implements Mammal, Feline, Reptile} \\
 \end{choices}
-
-\begin{enumerate}[label=\Alph*]
-  \item Does not work, because dogs are not feline.
-  \item Works, because dogs are mammals first, sometimes pets, and not all mammals are canine
-  \item Does not work because all canines are mammals
-  \item Does not work because dogs are not feline
-  \item Does not work because all dogs are mammals and canine
-\end{enumerate}
-
-Note: obviously, the ideal structure would be for dogs to extend canines which extend mammals all while implementing the pet interface, but this is a limitation of what could be shown through the answer choices. 
 
 \end{minipage}
 
@@ -419,7 +411,7 @@ Follow UMBREBLA, see the java operator heirarchy for details. \\
 
 % debugging
 \begin{minipage}{\textwidth}
-  \question[1]{Highlight the error(s) in the following code segment, and explain both (a) why it is an error and (b) what type of error it is (compiler/runtime/logical).}
+  \question[3]{(a) Highlight the error(s) in the following code segment, and explain both (b) why it is an error and (c) what type of error it is (compiler/runtime/logical).}
 
 \begin{verbatim}
 public static int hello() {
@@ -514,9 +506,10 @@ function PUSH(VALUE)
 \end{table}
 
 \begin{enumerate}[label=(\Alph*)]
+  \begin{minipage}{\textwidth}
   \item Draw the graph this travel index represents, including the cost and the directions of each flight.
-
-\vspace{\stretch{1}}
+  \input{./res/graph}
+  \end{minipage}
 
   \item Circle all of the following characteristics that represent this graph.
 
@@ -526,48 +519,62 @@ function PUSH(VALUE)
     \item \textcolor{red}{Directed}/Undirected \\
   \end{itemize}
 
-  \item What part of a graph do the places represent? \\
+  \item What part of a graph do the places represent? \\ 
 
-  \textcolor{red}{Nodes}
+  \textcolor{red}{Nodes} \\
 
-  \item What part of a graph do the connections represent? \\
+  \item What part of a graph do the connections represent?  \\
 
-  \textcolor{red}{Edges}
+  \textcolor{red}{Edges} \\
 
-  \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston? \\ \\
-  \item (i) What is the cheapest flight path between Tampa and Boston, and (ii) how much does it cost? \\ \\
+  \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston? \\
+
+  \textcolor{red}{Houston, Austin, Miami, Boston, Minneapolis, Tampa, San Antonio, Los Angeles} \\
+
+  \item (i) What is the cheapest flight path between Tampa and Boston, and (ii) how much does it cost? \\
+
+    \begin{enumerate}[label=(\alph*)]
+      \item \textcolor{red}{Boston $\to$ Miami $\to$ Tampa}
+      \item \textcolor{red}{\$458}
+    \end{enumerate}
 \end{enumerate}
 
 \newpage
 
 % Priority Queues
-\question[5]{The values $[23_{4}, -3_{5}, 18_{16}, 19_{8}, 1101_{2}, -10_{10}, 11_{2}]$ are inserted into a Priority Queue $Q$ in order. \textit{Assume all values are stored in base 10.}}
+\question[5]{The values $[23_{4}, -3_{5}, 18_{16}, 19_{8}, 1101_{2}, -10_{10}, 11_{2}]$ are inserted into a Priority
+Queue $Q$ in order. \textit{Write all values as their base 10 forms.}}
 
 \begin{enumerate}[label=(\Alph*)]
-  \item Draw the current state of $Q$ in tree form.
+  \item Draw the current state of $Q$ in tree form. \\
 
-\vspace{\stretch{1}}
+    \textcolor{red}{The values converted to base 10 are $[11, -3, 24, 17, 13, -10, 3]$} \\
 
-  \item Draw the current state of $Q$ in array form.
+    \input{./res/tree1.tex}
 
-\vspace{\stretch{1}}
+  \item Draw the current state of $Q$ in array form. \\
+
+  \textcolor{red}{$[-10, 11, -3, 17, 13, 24, 3]$} \\
 
 \end{enumerate}
 
-The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$, $push(Q, 10_{2} >> 2)$, $push(Q, -8_{2})$, $pop(Q)$, $pop(Q)$ \\
+The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$,
+$push(Q, 10_{2} >> 2)$, $push(Q, -8_{16})$, $pop(Q)$, $pop(Q)$ \\
 
 \begin{enumerate}[resume,label=(\Alph*)]
   \item Draw the new state of $Q$ in tree form.
 
-\vspace{\stretch{1}}
+  \textcolor{red}{$-8_{16} = -8_{10}$}
 
-  \item Draw the new state of $Q$ in array form.
+  \input{./res/tree2.tex}
 
-\vspace{\stretch{1}}
+  \item Draw the new state of $Q$ in array form. \\
 
-  \item What value would be returned by another call of $pop(Q)$?
+  \textcolor{red}{$[7, 11, 24, 17, 13]$} \\
 
-\vspace{\stretch{1}}
+  \item What value would be returned by another call of $pop(Q)$? \\
+
+  \textcolor{red}{7}
 
 \end{enumerate}
 

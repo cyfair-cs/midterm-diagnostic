@@ -301,11 +301,11 @@ switch (number) {
 \question[1]{Which of the following class declaration signatures best represents the relationship between animal classes? \\ }
 
 \begin{choices}
-  \choice {\tt class Dog extends Pet implements Mammal, Feline}
-  \choice {\tt class Dog extends Mammal implements Pet, Canine}
-  \choice {\tt class Dog extends Canine implements Mammal, Pet}
-  \choice {\tt class Dog extends Mammal implements Pet, Feline}
-  \choice {\tt class Dog implements Mammal, Pet, Canine} \\
+  \choice {\tt class Dog extends Feline implements Bark, Meow}
+  \choice {\tt class Dog extends Canine implements Meow, Talk}
+  \choice {\tt class Dog extends Canine implements Bark, Bite}
+  \choice {\tt class Dog extends Feline implements Sing, Dance}
+  \choice {\tt class Dog implements Mammal, Feline, Reptile} \\
 \end{choices}
 \end{minipage}
 
@@ -359,7 +359,8 @@ switch (number) {
 
 % debugging
 \begin{minipage}{\textwidth}
-  \question[1]{Highlight the error(s) in the following code segment, and explain both (a) why it is an error and (b) what type of error it is (compiler/runtime/logical).}
+  \question[3]{(a) Highlight the error(s) in the following code segment, and explain both (b) why it is an error and (c) what type of error it is (compiler/runtime/logical).}
+
 
 \begin{verbatim}
 public static int hello() {
@@ -425,6 +426,8 @@ public static int hello() {
 
 \vspace{\stretch{1}}
 
+\newpage
+
   \item Circle all of the following characteristics that represent this graph.
 
   \begin{itemize}
@@ -433,10 +436,24 @@ public static int hello() {
     \item Directed/Undirected \\
   \end{itemize}
 
-  \item What part of a graph do the places represent? \\
-  \item What part of a graph do the connections represent? \\
-  \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston? \\ \\
-  \item (i) What is the cheapest flight path between Tampa and Boston, and (ii) how much does it cost? \\ \\
+  \item What part of a graph do the places represent?
+
+  \vspace{\stretch{1}}
+
+  \item What part of a graph do the connections represent?
+
+  \vspace{\stretch{1}}
+
+  \item What would be the traversal order of a Depth-First-Search algorithm that picks places in alphabetical order by name (without consideration to cost) beginning at Houston?
+
+      \vspace{\stretch{1}}
+
+
+  \item (i) What is the cheapest flight path between Tampa and Boston, and (ii) how much does it cost?
+
+    \vspace{\stretch{1}}
+
+
 \end{enumerate}
 
 \newpage
@@ -455,7 +472,8 @@ public static int hello() {
 
 \end{enumerate}
 
-The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$, $push(Q, 10_{2} >> 2)$, $push(Q, -8_{2})$, $pop(Q)$, $pop(Q)$ \\
+The following operations are performed on $A$ in the following order: $pop(Q)$, $pop(Q)$, $pop(Q)$, $push(Q, 13_{4})$,
+$push(Q, 10_{2} >> 2)$, $push(Q, -8_{16})$, $pop(Q)$, $pop(Q)$ \\
 
 \begin{enumerate}[resume,label=(\Alph*)]
   \item Draw the new state of $Q$ in tree form.
